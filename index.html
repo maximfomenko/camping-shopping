@@ -1,61 +1,131 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Кемпинг — кто что покупает</title>
 <style>
-:root{--bg:#f4f5f7;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#111827;--ok:#0f766e;--warn:#9a3412;--chip:#f3f4f6;--shadow:0 8px 30px rgba(0,0,0,.06)}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}.wrap{max-width:1180px;margin:0 auto;padding:32px 18px 64px}header{display:flex;gap:16px;justify-content:space-between;align-items:flex-end;margin-bottom:22px;flex-wrap:wrap}h1{font-size:clamp(28px,4vw,44px);margin:0;letter-spacing:-.03em}.sub{color:var(--muted);margin-top:6px}.summary{display:flex;gap:10px;flex-wrap:wrap}.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-weight:700;box-shadow:var(--shadow)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}@media(max-width:820px){.grid{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.card-head{padding:20px 20px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:14px}.person{font-size:24px;font-weight:800}.role{color:var(--muted);font-size:14px;margin-top:2px}.amount{font-size:24px;font-weight:900;white-space:nowrap}.items{padding:4px 20px 10px}.item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;padding:12px 0;border-bottom:1px dashed var(--line)}.item:last-child{border-bottom:0}.item input{margin-top:3px;width:19px;height:19px;accent-color:var(--ok)}.item label{cursor:pointer}.name{font-weight:700}.meta{display:block;color:var(--muted);font-size:13px;margin-top:2px}.price{font-weight:800;white-space:nowrap}.checked .name,.checked .meta,.checked .price{text-decoration:line-through;opacity:.48}.note{margin:0 20px 20px;padding:13px 14px;background:#fafafa;border:1px solid var(--line);border-radius:14px;color:#4b5563;font-size:14px}.count{padding:0 20px 14px;color:var(--muted);font-size:13px;font-weight:700}.section{margin-top:28px}.section h2{font-size:26px;margin:0 0 12px}.bring{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px}.bring-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}@media(max-width:760px){.bring-grid{grid-template-columns:1fr}}.bring h3{margin:0 0 8px;font-size:18px}.bring ul{margin:0;padding-left:20px}.bring li{margin:7px 0}.footer-note{margin-top:22px;padding:18px;background:#fff7ed;border:1px solid #fed7aa;border-radius:18px;color:#7c2d12}.toolbar{display:flex;justify-content:flex-end;margin-top:18px}.reset{border:0;background:var(--accent);color:white;font-weight:800;border-radius:12px;padding:11px 16px;cursor:pointer}.reset:hover{opacity:.92}.gf{display:inline-block;font-size:11px;font-weight:900;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;border-radius:999px;padding:2px 7px;margin-left:6px;vertical-align:1px}
+:root{--bg:#f4f5f7;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#111827;--ok:#0f766e;--warn:#9a3412;--shadow:0 8px 30px rgba(0,0,0,.06)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}.wrap{max-width:1180px;margin:auto;padding:32px 18px 64px}header{display:flex;gap:16px;justify-content:space-between;align-items:flex-end;margin-bottom:22px;flex-wrap:wrap}h1{font-size:clamp(28px,4vw,44px);margin:0;letter-spacing:-.03em}.sub{color:var(--muted);margin-top:6px}.summary{display:flex;gap:10px;flex-wrap:wrap}.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-weight:700;box-shadow:var(--shadow)}.sync{font-size:12px;color:var(--ok);font-weight:800}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}@media(max-width:820px){.grid{grid-template-columns:1fr}}.card,.bring,.cat{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.card-head{padding:20px 20px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:14px}.person{font-size:24px;font-weight:800}.role{color:var(--muted);font-size:14px;margin-top:2px}.amount{font-size:20px;font-weight:900;white-space:nowrap}.items{padding:4px 20px 10px}.item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;padding:12px 0;border-bottom:1px dashed var(--line)}.item:last-child{border-bottom:0}.item input,.bring-check input{margin-top:3px;width:19px;height:19px;accent-color:var(--ok)}.item label,.bring-check label{cursor:pointer}.name{font-weight:700}.meta{display:block;color:var(--muted);font-size:13px;margin-top:2px}.price{font-weight:800;white-space:nowrap}.checked .name,.checked .meta,.checked .price{text-decoration:line-through;opacity:.48}.note{margin:0 20px 20px;padding:13px 14px;background:#fafafa;border:1px solid var(--line);border-radius:14px;color:#4b5563;font-size:14px}.count{padding:0 20px 14px;color:var(--muted);font-size:13px;font-weight:700}.section{margin-top:28px}.section h2{font-size:26px;margin:0 0 12px}.bring{padding:20px}.bring-grid,.cat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}@media(max-width:760px){.bring-grid,.cat-grid{grid-template-columns:1fr}}.bring h3{margin:0 0 8px;font-size:18px}.bring-check{display:grid;grid-template-columns:auto 1fr;gap:8px;margin:8px 0}.plain{margin:7px 0 7px 27px}.toolbar{display:flex;justify-content:flex-end;margin-top:18px}.reset{border:0;background:var(--accent);color:#fff;font-weight:800;border-radius:12px;padding:11px 16px;cursor:pointer}.gf{display:inline-block;font-size:11px;font-weight:900;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;border-radius:999px;padding:2px 7px;margin-left:6px}.cat-grid{margin-top:12px}.cat{padding:18px}.cat h3{margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}.done{color:var(--ok)}.missing{color:var(--muted);font-size:14px}.footer-note{margin-top:22px;padding:18px;background:#fff7ed;border:1px solid #fed7aa;border-radius:18px;color:#7c2d12}
 </style>
 </head>
-<body>
-<div class="wrap">
-<header>
-  <div><h1>Кто что покупает</h1><div class="sub">Кемпинг · чекбоксы сохраняются автоматически</div></div>
-  <div class="summary"><div class="pill">≈ 2,760 ₪ общий закуп</div><div class="pill">Пиво — отдельно</div></div>
-</header>
+<body><div class="wrap">
+<header><div><h1>Кто что покупает</h1><div class="sub">Кемпинг · отметки общие для всех</div><div id="sync" class="sync">Синхронизация…</div></div><div class="summary"><div class="pill" id="progress">0 / 0 куплено</div><div class="pill">Пиво — отдельно</div></div></header>
 <div id="cards" class="grid"></div>
-
 <div class="toolbar"><button class="reset" id="reset">Сбросить отметки</button></div>
 
-<section class="section">
-  <h2>Не покупать — привезти</h2>
-  <div class="sub" style="margin-bottom:12px">Проверить накануне</div>
-  <div class="bring">
-    <div class="bring-grid">
-      <div><h3>Каждый берёт себе</h3><ul><li>Питьевая вода</li><li>Влажные салфетки и антисептик</li><li>Репеллент от комаров</li><li>Солнцезащитный крем</li></ul></div>
-      <div><h3>Огонь и готовка</h3><ul><li>2 мангала + 2 решётки</li><li>20 шампуров, 2 щипцов, лопатка</li><li>Чугунная сковорода 30+ см (шакшука)</li><li>Финджан и котелок, чайник</li><li>3 ножа, 3 доски (одна — GF, подписать)</li><li>Жаростойкие перчатки, ведро под воду</li></ul></div>
-      <div><h3>Холод и вода</h3><ul><li>4–5 сумок-холодильников</li><li>2 канистры по 20 л (готовка и мытьё)</li><li>Аккумуляторы холода из морозилки</li></ul></div>
-      <div><h3>Лагерь</h3><ul><li>Палатки, коврики, спальники</li><li>2–3 стола, 20 стульев</li><li>Тент от солнца — сентябрь ещё жаркий</li><li>Налобники, гирлянда, powerbank</li><li>Мяч, бадминтон, колонка</li></ul></div>
-      <div><h3>Накануне дома</h3><ul><li>Замариновать мясо и увезти в лотках (Фоменко)</li><li>Помыть картошку и завернуть в фольгу — 20 шт</li><li>Часть своей воды заморозить — будет вместо льда</li><li>Аптечка: жаропонижающее, пластыри, антигистамин</li></ul></div>
-    </div>
-  </div>
-</section>
+<section class="section"><h2>Не покупать — привезти</h2><div class="sub" style="margin-bottom:12px">Проверить накануне · вода — каждый берёт себе</div><div class="bring"><div id="bring" class="bring-grid"></div></div></section>
 
-<div class="footer-note">Цены — оценка сентября 2026 в крупной сети (Рами Леви / Шуферсаль). Финальный расчёт — по чекам: каждый фотографирует чек в общий чат, разницу выравниваем переводом. Ожидаемый разброс ±10% от ≈390 ₪, специально доводить до копейки не нужно. Пиво (по 36 бутылок у Шумахера и Вовы, ≈6 ₪ за бутылку) в общий расчёт не входит — скидываются только те, кто пьёт.</div>
+<section class="section"><h2>Проверка по категориям</h2><div class="sub">Сводка обновляется автоматически — сразу видно, чего ещё не хватает</div><div id="categories" class="cat-grid"></div></section>
+
+<div class="footer-note">Цены — ориентир. Новые позиции без указанной цены отмечены «по чеку». Финальный расчёт — по чекам. Пиво в общий расчёт не входит — скидываются только те, кто пьёт.</div>
 </div>
 <script>
-const people = [
-{p:'Фоменко',role:'Мясной прилавок · вечер 1, специи',total:'457 ₪',items:[['Баранина','3 кг','270 ₪'],['Куриные бёдра без кости','3 кг','120 ₪'],['Специи: паприка, кумин, чеснок гранул., крупная соль, перец','набор','35 ₪'],['Оливковое масло','750 мл','32 ₪']],count:'4 позиции · 457 ₪',note:'Маринует мясо дома накануне и везёт в лотках в сумке-холодильнике. Лотки покупает Костя — забрать у него заранее.'},
-{p:'Шумахер',role:'Мясной прилавок · вечер 2, пиво',total:'415 ₪',items:[['Кебабы (говядина)','2,5 кг','175 ₪'],['Антрекот','1 кг','120 ₪'],['Рис','3 кг','30 ₪'],['Казан','1 шт · уже есть, взять с собой','0 ₪'],['Сосиски / хот-доги','3 уп','90 ₪'],['Пиво в бутылках отдельно','36 бут · отдельно, скидываются пьющие','216 ₪']],count:'5 позиций + пиво отдельно · 415 ₪',note:'Сосиски обычные, на всех: GF-сосиски берёт Гоша. Пиво в общий расчёт не входит — скидываются только те, кто пьёт.'},
-{p:'Вова',role:'Овощи, фрукты, хлебный отдел, пиво',total:'477 ₪',items:[['Помидоры','3 кг','25 ₪'],['Огурцы','3 кг','20 ₪'],['Лук репчатый','2 кг','12 ₪'],['Перец болгарский','1,5 кг','20 ₪'],['Картофель','4 кг','22 ₪'],['Кукуруза в початках','12 шт','36 ₪'],['Лимоны','5 шт','10 ₪'],['Чеснок','3 головки','8 ₪'],['Зелень: петрушка, кинза, укроп','3 пучка','15 ₪'],['Арбуз','2 шт','45 ₪'],['Виноград','2 кг','32 ₪'],['Яблоки и бананы','3 кг','32 ₪'],['Питы','4 уп','32 ₪'],['Булочки для бургеров','20 шт','42 ₪'],['Булочки для хот-догов','20 шт','36 ₪'],['Дрова','3 мешка','90 ₪'],['Пиво в бутылках отдельно','36 бут · отдельно, скидываются пьющие','216 ₪']],count:'16 позиций + пиво отдельно · 477 ₪',note:'Овощи берём в последний день перед выездом — иначе помидоры не доедут. Пиво в общий расчёт не входит — скидываются только те, кто пьёт.'},
-{p:'Казах',role:'Молочный холодильник, кофе, чай, хлопья',total:'390 ₪',items:[['Яйца','36 шт','48 ₪'],['Сыр жёлтый нарезка','1 кг','60 ₪'],['Творожный сыр / коттедж','3 шт','27 ₪'],['Молоко','2 л','16 ₪'],['Хумус большой','3 шт','45 ₪'],['Тхина','2 шт','24 ₪'],['Матбуха / салат турецкий','2 шт','24 ₪'],['Кофе молотый для финджана + растворимый','2 уп','48 ₪'],['Чай, сахар, какао','набор','22 ₪'],['Шоколадная паста','1 шт','26 ₪'],['Корнфлекс (обычный)','3 коробки по 750 г','50 ₪']],count:'11 позиций · 390 ₪',note:'Одна банка хумуса и одна тхина откладываются нетронутыми и сразу отдаются Гоше — подписать маркером, своя ложка.'},
-{p:'Швед',role:'Уголь, снеки, соусы, соки',total:'364 ₪',items:[['Уголь 10 кг','3 мешка','105 ₪'],['Розжиг (кубики) + длинные спички','набор','32 ₪'],['Чипсы, крекеры, снеки детям','6 уп','80 ₪'],['Маршмеллоу + шоколад для костра','3 + 4','55 ₪'],['Кетчуп, майонез','2 шт','32 ₪'],['Соки и лимонад 2 л','6 шт','60 ₪']],count:'6 позиций · 364 ₪',note:'Уголь — самое тяжёлое (30 кг): брать последним, у выхода. Маршмеллоу перед кассой сфоткать составом Гоше — там иногда встречается пшеничный крахмал.'},
-{p:'Костя',role:'Одноразовая посуда, фольга, хозтовары, шоко',total:'396 ₪',items:[['Алюминиевые лотки (маринад + GF-зона)','10 шт','40 ₪'],['Фольга широкая','2 рулона','30 ₪'],['Пищевая плёнка','1 рулон','10 ₪'],['Тарелки прочные 22 см','150 шт','62 ₪'],['Стаканы + 2 маркера подписать','200 шт','45 ₪'],['Вилки 120, ножи 60, ложки 60','набор','48 ₪'],['Салфетки 4 пачки + бумажные полотенца 4 рулона','набор','48 ₪'],['Средство для мытья посуды + 2 губки + таз','набор','38 ₪'],['Мусорные мешки','10 шт','10 ₪'],['Шоко','30 шт по 250 мл (5 уп)','65 ₪']],count:'10 позиций · 396 ₪',note:'Шоко брать последним и сразу в сумку-холодильник. Лотки отдать Фоменко до маринования. Маркеры на стаканах — не мелочь: подписанный стакан живёт весь выезд, неподписанных уходит по 8 штук на человека в день.'},
-{p:'Гоша',role:'Полка «без глютена», котлеты',total:'381 ₪',items:[['Хлеб и питы ללא גלוטן','2 уп','55 ₪','gf'],['GF булочки для бургеров и хот-догов','6 шт','48 ₪','gf'],['Рисовые хлебцы','2 уп','18 ₪','gf'],['GF печенье и снеки (отдельная пачка, подписать)','2 уп','40 ₪','gf'],['Сосиски ללא גלוטן','1 уп','35 ₪','gf'],['Бургер-котлеты 100% говядина, без панировки','20 шт','160 ₪'],['Корнфлекс ללא גלוטן','1 коробка','25 ₪','gf']],count:'7 позиций · 381 ₪',note:'Весь GF-блок за Гошей: он знает марки и читает ивритские этикетки быстрее остальных. Котлеты тоже берёт он — состав самой рискованной позиции проверяет тот, кому это важнее всех. Остальные присылают ему фото состава спорных позиций (сосиски, маршмеллоу) до кассы, а не после. Он же везёт подписанный комплект: доска, нож, щипцы.'}
+const SUPABASE_URL='https://rcpshmabdjliqgocvyfb.supabase.co';
+const SUPABASE_KEY='sb_publishable_-Ag-jc2luj_0q0pVHhV1kg_WWBfcDIz';
+
+const people=[
+{p:'Фоменко',role:'Мясо · вечер 1, специи',items:[
+ ['lamb','Баранина','3 кг','270 ₪','Мясо'],
+ ['chicken-thigh','Куриные бёдра без кости','3 кг','120 ₪','Мясо'],
+ ['spices','Специи: паприка, кумин, чеснок гранул., крупная соль, перец','набор','35 ₪','Бакалея'],
+ ['olive-oil','Оливковое масло','750 мл','32 ₪','Бакалея']],note:'Маринует мясо дома накануне и везёт в лотках в сумке-холодильнике. Лотки покупает Костя — забрать у него заранее.'},
+{p:'Шумахер',role:'Мясо · вечер 2, пиво',items:[
+ ['kebab','Кебабы (говядина)','2,5 кг','175 ₪','Мясо'],
+ ['entrecote','Антрекот','1 кг','120 ₪','Мясо'],
+ ['rice','Рис','3 кг','30 ₪','Бакалея'],
+ ['cauldron','Казан','1 шт · уже есть, взять с собой','0 ₪','Лагерь'],
+ ['sausages','Сосиски / хот-доги','3 уп','90 ₪','Мясо'],
+ ['beer-s','Пиво в бутылках отдельно','36 бут · скидываются пьющие','216 ₪','Напитки']],note:'Сосиски обычные, на всех: GF-сосиски берёт Гоша. Пиво оплачивают только те, кто пьёт.'},
+{p:'Вова',role:'Овощи, фрукты, хлеб, мясо, пиво',items:[
+ ['hearts','Сердечки','2 кг','по чеку','Мясо'],
+ ['tomatoes','Помидоры','3 кг','25 ₪','Овощи и фрукты'],['cucumbers','Огурцы','3 кг','20 ₪','Овощи и фрукты'],
+ ['onion','Лук репчатый','3 кг','по чеку','Овощи и фрукты'],['pepper','Перец болгарский','1,5 кг','20 ₪','Овощи и фрукты'],
+ ['potato','Картофель','4 кг','22 ₪','Овощи и фрукты'],['corn','Кукуруза в початках','12 шт','36 ₪','Овощи и фрукты'],
+ ['lemons','Лимоны','5 шт','10 ₪','Овощи и фрукты'],['garlic','Чеснок','3 головки','8 ₪','Овощи и фрукты'],
+ ['greens','Зелень: петрушка, кинза, укроп','3 пучка','15 ₪','Овощи и фрукты'],['watermelon','Арбуз','2 шт','45 ₪','Овощи и фрукты'],
+ ['grapes','Виноград','2 кг','32 ₪','Овощи и фрукты'],['fruit','Яблоки и бананы','3 кг','32 ₪','Овощи и фрукты'],
+ ['pitas','Питы','4 уп','32 ₪','Хлеб'],['burger-buns','Булочки для бургеров','20 шт','42 ₪','Хлеб'],
+ ['hotdog-buns','Булочки для хот-догов','20 шт','36 ₪','Хлеб'],['wood','Дрова','3 мешка','90 ₪','Лагерь'],
+ ['beer-v','Пиво в бутылках отдельно','36 бут · скидываются пьющие','216 ₪','Напитки']],note:'Овощи берём в последний день перед выездом. Пиво в общий расчёт не входит.'},
+{p:'Казах',role:'Молочное, кофе, чай, хлопья, алкоголь',items:[
+ ['eggs','Яйца','36 шт','48 ₪','Молочное и завтрак'],['cheese','Сыр жёлтый нарезка','1 кг','60 ₪','Молочное и завтрак'],
+ ['cottage','Творожный сыр / коттедж','3 шт','27 ₪','Молочное и завтрак'],['milk','Молоко','4 л','по чеку','Молочное и завтрак'],
+ ['hummus','Хумус большой','3 шт','45 ₪','Закуски и соусы'],['tahini','Тхина','2 шт','24 ₪','Закуски и соусы'],
+ ['matbucha','Матбуха / салат турецкий','2 шт','24 ₪','Закуски и соусы'],['coffee','Кофе молотый для финджана + растворимый','2 уп','48 ₪','Напитки'],
+ ['tea','Чай, сахар, какао','набор','22 ₪','Напитки'],['spread','Шоколадная паста','1 шт','26 ₪','Молочное и завтрак'],
+ ['cornflakes','Корнфлекс разный','3 пачки','по чеку','Молочное и завтрак'],['moonshine','Самогон','взять с собой','по чеку','Напитки']],note:'Одна банка хумуса и одна тхина откладываются нетронутыми для Гоши — подписать маркером, своя ложка.'},
+{p:'Швед',role:'Уголь, снеки, соусы, напитки',items:[
+ ['charcoal','Уголь 10 кг','3 мешка','105 ₪','Лагерь'],['firestarter','Розжиг + длинные спички','набор','32 ₪','Лагерь'],
+ ['snacks','Чипсы, крекеры, снеки детям','6 уп','80 ₪','Закуски и соусы'],['smores','Маршмеллоу + шоколад для костра','3 + 4','55 ₪','Закуски и соусы'],
+ ['sauces','Кетчуп, майонез','2 шт','32 ₪','Закуски и соусы'],['juice','Соки и лимонад 2 л','6 шт','60 ₪','Напитки'],
+ ['coke-zero','Coca-Cola Zero','2 упаковки × 6','по чеку','Напитки']],note:'Уголь брать последним, у выхода. Состав маршмеллоу сфотографировать Гоше до кассы.'},
+{p:'Костя',role:'Одноразовая посуда, фольга, хозтовары, шоко',items:[
+ ['trays','Алюминиевые лотки (маринад + GF-зона)','10 шт','40 ₪','Хозтовары'],['foil','Фольга широкая','2 рулона','30 ₪','Хозтовары'],
+ ['wrap','Пищевая плёнка','1 рулон','10 ₪','Хозтовары'],['plates','Тарелки прочные 22 см','150 шт','62 ₪','Хозтовары'],
+ ['cups','Стаканы + 2 маркера','200 шт','45 ₪','Хозтовары'],['cutlery','Вилки 120, ножи 60, ложки 60','набор','48 ₪','Хозтовары'],
+ ['napkins','Салфетки + бумажные полотенца','4 пачки + 4 рулона','48 ₪','Хозтовары'],['washing','Средство для посуды + 2 губки + таз','набор','38 ₪','Хозтовары'],
+ ['trash','Мусорные мешки','10 шт','10 ₪','Хозтовары'],['shoko','Шоко','30 шт по 250 мл (5 уп)','65 ₪','Напитки']],note:'Шоко брать последним и сразу в сумку-холодильник. Лотки отдать Фоменко до маринования.'},
+{p:'Гоша',role:'Без глютена, котлеты',items:[
+ ['gf-bread','Хлеб и питы ללא גלוטן','2 уп','55 ₪','GF','gf'],['gf-buns','GF булочки для бургеров и хот-догов','6 шт','48 ₪','GF','gf'],
+ ['rice-cakes','Рисовые хлебцы GF','2 уп','18 ₪','GF','gf'],['gf-snacks','GF печенье и снеки','2 уп','40 ₪','GF','gf'],
+ ['gf-sausages','Сосиски ללא גלוטן','1 уп','35 ₪','GF','gf'],['burgers','Бургер-котлеты 100% говядина, без панировки','20 шт','160 ₪','Мясо'],
+ ['gf-cornflakes','Корнфлекс ללא גלוטן','1 коробка','25 ₪','GF','gf']],note:'Весь GF-блок за Гошей. Остальные присылают ему фото состава спорных позиций до кассы. Он же везёт подписанный комплект: доска, нож, щипцы.'}
 ];
-const root=document.getElementById('cards');
-people.forEach((person,pi)=>{
- const card=document.createElement('article');card.className='card';
- card.innerHTML=`<div class="card-head"><div><div class="person">${person.p}</div><div class="role">${person.role}</div></div><div class="amount">${person.total}</div></div><div class="items"></div><div class="count">${person.count}</div><div class="note">${person.note}</div>`;
- const items=card.querySelector('.items');
- person.items.forEach((it,ii)=>{const key=`camp-${pi}-${ii}`;const row=document.createElement('div');row.className='item';row.innerHTML=`<input type="checkbox" id="${key}"><label for="${key}"><span class="name">${it[0]}${it[3]?'<span class="gf">GF</span>':''}</span><span class="meta">${it[1]}</span></label><div class="price">${it[2]}</div>`;const cb=row.querySelector('input');cb.checked=localStorage.getItem(key)==='1';if(cb.checked)row.classList.add('checked');cb.addEventListener('change',()=>{localStorage.setItem(key,cb.checked?'1':'0');row.classList.toggle('checked',cb.checked)});items.appendChild(row)});
- root.appendChild(card)
-});
-document.getElementById('reset').addEventListener('click',()=>{if(confirm('Сбросить все отметки?')){Object.keys(localStorage).filter(k=>k.startsWith('camp-')).forEach(k=>localStorage.removeItem(k));location.reload()}})
-</script>
-<!-- deploy-trigger: 2026-09-21 -->
-</body>
-</html>
+
+const bringGroups=[
+ ['Каждый берёт себе',[['water-each','Питьевая вода — каждый себе'],['wipes','Влажные салфетки и антисептик'],['repellent','Репеллент от комаров'],['sunscreen','Солнцезащитный крем']]],
+ ['Огонь и готовка',[['grills','2 мангала + 2 решётки'],['skewers','20 шампуров, 2 щипцов, лопатка'],['pan','Чугунная сковорода 30+ см'],['coffee-pot','Финджан и котелок, чайник'],['knives','3 ножа, 3 доски (одна GF)'],['gloves','Жаростойкие перчатки, ведро под воду']]],
+ ['Холод и вода',[['coolers','4–5 сумок-холодильников'],['canisters','2 канистры по 20 л для готовки и мытья'],['icepacks','Аккумуляторы холода из морозилки']]],
+ ['Лагерь',[['tents','Палатки, коврики, спальники'],['tables','2–3 стола, 20 стульев'],['shade','Тент от солнца'],['lights','Налобники, гирлянда, powerbank'],['games','Мяч, бадминтон, колонка']]],
+ ['Накануне дома',[['marinate','Замариновать мясо и увезти в лотках (Фоменко)'],['prep-potato','Помыть картошку и завернуть в фольгу — 20 шт'],['freeze-water','Часть своей воды заморозить — будет вместо льда'],['firstaid','Аптечка: жаропонижающее, пластыри, антигистамин']]]
+];
+
+let state={};
+const allShopItems=people.flatMap(p=>p.items.map(i=>({key:'shop-'+i[0],name:i[1],cat:i[4]})));
+const allBringItems=bringGroups.flatMap(g=>g[1].map(i=>({key:'bring-'+i[0],name:i[1],cat:'Привезти'})));
+const allItems=[...allShopItems,...allBringItems];
+
+function headers(extra={}){return {'apikey':SUPABASE_KEY,'Content-Type':'application/json',...extra}}
+async function loadState(){
+ try{
+  const r=await fetch(SUPABASE_URL+'/rest/v1/camping_checklist_state?select=item_key,checked',{headers:headers()});
+  if(!r.ok)throw new Error(await r.text());
+  const rows=await r.json(); const next={}; rows.forEach(x=>next[x.item_key]=x.checked); state=next; applyState();
+  document.getElementById('sync').textContent='● Синхронизировано для всех';
+ }catch(e){document.getElementById('sync').textContent='⚠ Нет связи — обновлю при восстановлении';}
+}
+async function setState(key,checked){
+ state[key]=checked;applyState();
+ try{
+  const r=await fetch(SUPABASE_URL+'/rest/v1/camping_checklist_state?on_conflict=item_key',{method:'POST',headers:headers({'Prefer':'resolution=merge-duplicates'}),body:JSON.stringify({item_key:key,checked,updated_at:new Date().toISOString()})});
+  if(!r.ok)throw new Error(await r.text());
+  document.getElementById('sync').textContent='● Синхронизировано для всех';
+ }catch(e){document.getElementById('sync').textContent='⚠ Не удалось сохранить отметку';}
+}
+function checkboxRow(key,name,meta='',price='',gf=false){
+ const row=document.createElement('div');row.className='item';row.dataset.key=key;
+ row.innerHTML='<input type="checkbox"><label><span class="name">'+name+(gf?'<span class="gf">GF</span>':'')+'</span>'+(meta?'<span class="meta">'+meta+'</span>':'')+'</label>'+(price?'<div class="price">'+price+'</div>':'');
+ row.querySelector('label').onclick=()=>row.querySelector('input').click();
+ row.querySelector('input').onchange=e=>setState(key,e.target.checked);
+ return row;
+}
+const cards=document.getElementById('cards');
+people.forEach(p=>{const c=document.createElement('article');c.className='card';c.innerHTML='<div class="card-head"><div><div class="person">'+p.p+'</div><div class="role">'+p.role+'</div></div><div class="amount">по чекам</div></div><div class="items"></div><div class="count">'+p.items.length+' позиций</div><div class="note">'+p.note+'</div>';p.items.forEach(i=>c.querySelector('.items').appendChild(checkboxRow('shop-'+i[0],i[1],i[2],i[3],i[5]==='gf')));cards.appendChild(c)});
+
+const bring=document.getElementById('bring');
+bringGroups.forEach(g=>{const d=document.createElement('div');d.innerHTML='<h3>'+g[0]+'</h3>';g[1].forEach(i=>{const r=document.createElement('div');r.className='bring-check';r.dataset.key='bring-'+i[0];r.innerHTML='<input type="checkbox"><label>'+i[1]+'</label>';r.querySelector('label').onclick=()=>r.querySelector('input').click();r.querySelector('input').onchange=e=>setState('bring-'+i[0],e.target.checked);d.appendChild(r)});bring.appendChild(d)});
+
+function applyState(){
+ document.querySelectorAll('[data-key]').forEach(r=>{const on=!!state[r.dataset.key];const cb=r.querySelector('input');if(cb)cb.checked=on;r.classList.toggle('checked',on)});
+ const done=allItems.filter(x=>state[x.key]).length;document.getElementById('progress').textContent=done+' / '+allItems.length+' отмечено';
+ renderCategories();
+}
+function renderCategories(){
+ const cats={};allItems.forEach(x=>(cats[x.cat]??=[]).push(x));
+ const root=document.getElementById('categories');root.innerHTML='';
+ Object.entries(cats).forEach(([cat,items])=>{const done=items.filter(x=>state[x.key]);const missing=items.filter(x=>!state[x.key]);const d=document.createElement('div');d.className='cat';d.innerHTML='<h3><span>'+cat+'</span><span class="'+(missing.length?'':'done')+'">'+done.length+'/'+items.length+'</span></h3><div class="missing">'+(missing.length?'<b>Ещё нужно:</b> '+missing.map(x=>x.name).join(', '):'<span class="done"><b>✓ Всё отмечено</b></span>')+'</div>';root.appendChild(d)});
+}
+document.getElementById('reset').onclick=async()=>{if(!confirm('Сбросить все общие отметки у всех?'))return;await Promise.all(allItems.map(x=>setState(x.key,false)));};
+loadState();setInterval(loadState,3000);
+</script></body></html>
